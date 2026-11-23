@@ -1,7 +1,31 @@
-<h1>
-  {{title}}
-</h1>
-<button class="btn btn-sm btn-primary"
-        (click)="change()"[hidden]="btnstate">
-change
-</button>
+<table class="table">
+  <thead>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Date</th>
+    <th>Max</th>
+    <th>Reservations</th>
+    <th>Picture</th>
+  </tr>
+  </thead>
+  <tbody>
+    @for (confe of list; track $index) {
+      <tr>
+        <td>{{ confe.title }}</td>
+        <td>{{ confe.description }}</td>
+        <td>{{ confe.date }}</td>
+        <td>{{ confe.nbrMax - confe.nbrReservation }}</td>
+        <td>{{ confe.nbrReservation }}</td>
+        <td>
+         <button class="btn btn-small btn-success"[disabled]="confe.nbrMax==confe.nbrReservation"
+
+           (click)="participate(confe)">
+           participate
+         </button>
+
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>
