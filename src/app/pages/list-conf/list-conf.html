@@ -1,7 +1,43 @@
-<ul class="list-group">
-  <li class="list-group-item active" aria-current="true">PICTURE</li>
-  <li class="list-group-item">TITLE</li>
-  <li class="list-group-item">DATE</li>
-  <li class="list-group-item">ADRESSE</li>
-  <li class="list-group-item">NBR PLACES</li>
-</ul>
+<input type="text" name="serach"
+       class="form-control"
+       placeholder="search by title " [(ngModel)]="searchTitle"
+>
+<h1>
+  {{searchTitle}}
+</h1>
+<table class="table">
+  <thead>
+  <tr>
+
+
+
+  </tr>
+  </thead>
+  <tbody>
+    @for (confe of list; track $index) {
+      @if(searchTitle==confe.title || searchTitle==''){
+
+
+        <tr>
+          <ul class="list-group">
+            <li class="list-group-item active" aria-current="true">
+              <img [src]="confe.picture" alt="" width="80">
+            </li>
+            <li class="list-group-item">{{ confe.title }}</li>
+            <li class="list-group-item">{{ confe.date }}</li>
+            <li class="list-group-item">{{ confe.description }}</li>
+            <li class="list-group-item">{{ confe.nbrMax - confe.nbrReservation }}</li>
+          </ul>
+          <td>
+            <button class="btn btn-small btn-success"[disabled]="confe.nbrMax==confe.nbrReservation"
+
+                    (click)="participate(confe)">
+              participate
+            </button>
+
+          </td>
+        </tr>
+      }
+    }
+  </tbody>
+</table>
