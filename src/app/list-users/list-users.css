@@ -1,0 +1,20 @@
+h2 {
+  color: #1f3a5f;
+}
+
+input {
+  max-width: 300px;
+  margin-bottom: 15px;
+}
+
+.friends-list {
+  list-style: none;
+  padding: 0;
+}
+
+.friends-list li {
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  background: #f1f5f9;
+}

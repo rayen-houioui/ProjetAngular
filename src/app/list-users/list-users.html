@@ -1,0 +1,13 @@
+<h2>Liste des amis</h2>
+
+<input type="text" class="form-control"
+       placeholder="search by name"
+       [(ngModel)]="searchName">
+
+<ul class="friends-list">
+  @for (user of list; track $index) {
+    @if (searchName == '' || user.nom.toLowerCase().includes(searchName.toLowerCase())) {
+      <li>{{ user.nom }}</li>
+    }
+  }
+</ul>
