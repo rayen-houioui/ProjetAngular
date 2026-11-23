@@ -15,7 +15,7 @@
   </thead>
   <tbody>
     @for (confe of list; track $index) {
-      @if(searchTitle==confe.title || searchTitle==''){
+      @if(searchTitle == '' || confe.title.toLowerCase().includes(searchTitle.toLowerCase())) {
 
 
         <tr>
